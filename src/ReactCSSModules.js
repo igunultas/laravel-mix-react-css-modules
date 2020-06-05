@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 class ReactCSSModules {
   /**
    * Initialise the class
@@ -35,7 +36,7 @@ class ReactCSSModules {
    * @return {Array}
    */
   dependencies() {
-    return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested"];
+    return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested", "mini-css-extract-plugin"];
   }
 
   /**
