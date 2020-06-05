@@ -5,6 +5,8 @@
 }(this, (function (mix) {
   mix = mix && Object.prototype.hasOwnProperty.call(mix, 'default') ? mix['default'] : mix;
 
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
   class ReactCSSModules {
     constructor() {
       this.scopedName = this.defaultScopedName();
@@ -19,7 +21,7 @@
     }
 
     dependencies() {
-      return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested"];
+      return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested", "mini-css-extract-plugin"];
     }
 
     register(scopedName) {

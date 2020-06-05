@@ -1,5 +1,7 @@
 import mix from 'laravel-mix';
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 class ReactCSSModules {
   constructor() {
     this.scopedName = this.defaultScopedName();
@@ -14,7 +16,7 @@ class ReactCSSModules {
   }
 
   dependencies() {
-    return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested"];
+    return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested", "mini-css-extract-plugin"];
   }
 
   register(scopedName) {
