@@ -65,6 +65,9 @@ class ReactCSSModules {
    */
   webpackConfig(config) {
     // Loop through all rules
+
+
+
     config.module.rules = config.module.rules.map(rule => {
       if (!rule.loaders) {
         return rule;
@@ -83,16 +86,16 @@ class ReactCSSModules {
 
           // Convert string syntax to object syntax if neccessary
           loader =
-            typeof loader === "string"
-              ? {
-                  loader
-                }
-              : loader;
+              typeof loader === "string"
+                  ? {
+                    loader
+                  }
+                  : loader;
 
           // Inject our options into the loader
           loader.options = loader.options
-            ? Object.assign({}, loader.options, options)
-            : options;
+              ? Object.assign({}, loader.options, options)
+              : options;
         }
 
         return loader;
@@ -112,6 +115,14 @@ class ReactCSSModules {
   babelConfig() {
     return {
       plugins: [
+        [
+          new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: devMode ? '[name].css' : '[name].[hash].css',
+            chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+          })
+        ],
         [
           "react-css-modules",
           {
