@@ -57,8 +57,8 @@ class ReactCSSModules {
   babelConfig() {
     return {
       plugins: [[new MiniCssExtractPlugin({
-        filename: devMode ? '[name].css' : '[name].[hash].css',
-        chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+        filename: '[name].[hash].css',
+        chunkFilename: '[id].[hash].css'
       })], ["react-css-modules", {
         filetypes: {
           ".scss": {
